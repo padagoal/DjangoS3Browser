@@ -1,6 +1,6 @@
 Django S3 File Browser
 ======================
-
+UPDATING FOR DJANGOv3.8
 
 :Info: S3 File Browser For Django.
 :Author: Mehmet KAYKISIZ (http://github.com/mkaykisiz)

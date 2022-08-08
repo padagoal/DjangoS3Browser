@@ -14,19 +14,19 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.urls import path
 from django.conf.urls.static import static
 
 from djangoS3Browser.s3_browser import settings
 from djangoS3Browser.s3_browser import views
 
 urlpatterns = [
-                  url(r'^get_folder_items/(.+)/(.+)/$', views.get_folder_items, name='get_folder_items'),
-                  url(r'^upload/$', views.upload, name='upload'),
-                  url(r'^create_folder/$', views.create_folder, name='create_folder'),
-                  url(r'^download/$', views.download, name='download'),
-                  url(r'^rename_file/$', views.rename_file, name='rename_file'),
-                  url(r'^paste_file/$', views.paste_file, name='paste_file'),
-                  url(r'^move_file/$', views.move_file, name='move_file'),
-                  url(r'^delete_file/$', views.delete_file, name='delete_file'),
+                  path('get_folder_items/(.+)/(.+)/$', views.get_folder_items, name='get_folder_items'),
+                  path('^upload/$', views.upload, name='upload'),
+                  path('^create_folder/$', views.create_folder, name='create_folder'),
+                  path('^download/$', views.download, name='download'),
+                  path('^rename_file/$', views.rename_file, name='rename_file'),
+                  path('^paste_file/$', views.paste_file, name='paste_file'),
+                  path('^move_file/$', views.move_file, name='move_file'),
+                  path('^delete_file/$', views.delete_file, name='delete_file'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
