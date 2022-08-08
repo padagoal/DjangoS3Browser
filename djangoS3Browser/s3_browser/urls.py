@@ -21,12 +21,12 @@ from djangoS3Browser.s3_browser import settings
 from djangoS3Browser.s3_browser import views
 
 urlpatterns = [
-                  path('get_folder_items/(.+)/(.+)/$', views.get_folder_items, name='get_folder_items'),
-                  path('^upload/$', views.upload, name='upload'),
-                  path('^create_folder/$', views.create_folder, name='create_folder'),
-                  path('^download/$', views.download, name='download'),
-                  path('^rename_file/$', views.rename_file, name='rename_file'),
-                  path('^paste_file/$', views.paste_file, name='paste_file'),
-                  path('^move_file/$', views.move_file, name='move_file'),
-                  path('^delete_file/$', views.delete_file, name='delete_file'),
+                  path('get_folder_items/(?P<main_folder>.+)/(?P<sort_a_z>.+)/', views.get_folder_items, name='get_folder_items'),
+                  path('upload/', views.upload, name='upload'),
+                  path('create_folder/', views.create_folder, name='create_folder'),
+                  path('download/', views.download, name='download'),
+                  path('rename_file/', views.rename_file, name='rename_file'),
+                  path('paste_file/', views.paste_file, name='paste_file'),
+                  path('move_file/', views.move_file, name='move_file'),
+                  path('delete_file/', views.delete_file, name='delete_file'),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
